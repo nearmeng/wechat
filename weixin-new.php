@@ -11,6 +11,7 @@
   	$postObj 	= simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 	$mType 		= $postObj->MsgType;
 
+
 		if($mType =='text')
 		{
 			$fromUsername 	= $postObj->FromUserName;

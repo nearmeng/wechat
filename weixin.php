@@ -1,14 +1,17 @@
 <?php
-/**
-  * wechat
-  * Author:renbaoyong@gmail.com
-  * date : 2013-5-12
-  */
 
 //define your token
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
-$wechatObj->valid();
+if (isset($_GET['echostr']))
+{
+    $wechatObj->valid();
+}
+else
+{
+    $wechatObj->responseMsg();
+}
+
 
 class wechatCallbackapiTest
 {
@@ -47,7 +50,7 @@ class wechatCallbackapiTest
 				if(!empty( $keyword ))
                 {
               		$msgType = "text";
-                	$contentStr = "Welcome to wechat world!";
+                	$contentStr = "Welcome to hxknows world!".$keyword;
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
                 }else{

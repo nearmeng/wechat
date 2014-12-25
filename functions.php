@@ -1,9 +1,4 @@
 <?php
-  /**
-  * wechat
-  * Author:renbaoyong@gmail.com
-  * date : 2013-5-12
-  */
   
 //*************************里面的内容根据自己实际情况自行修改**************************// 	
 	$_hostname	= 'localhost'; 
