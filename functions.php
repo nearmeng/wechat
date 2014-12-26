@@ -24,7 +24,7 @@
 	// 连接dB
 	$conn = mysql_connect($_hostname, $_username, $_password);
 	mysql_select_db($_dbname, $conn);
-	mysql_query("set names utf-8");
+	mysql_query("set names utf8");
  
  	//自定义的方法都可以写到这个里面来
 	function show($keyword, $key, $fromUsername, $toUsername)
