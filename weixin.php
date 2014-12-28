@@ -4,7 +4,7 @@
   require_once('user_command_funs.php');
   
   $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-  $file = 'debug.txt';
+  $file = '/data/html/debug.txt';
   $ip = fopen($file,'w');
 
   //首次进行认证处理
@@ -18,7 +18,6 @@
   if (!empty($postStr)){
   	$postObj 	= simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 	$mType 		= $postObj->MsgType;
-
 
 		if($mType =='text')
 		{
