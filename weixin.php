@@ -1,7 +1,7 @@
 <?php
-
-  require_once('functions.php');
-  require_once('user_command_func.php');
+  require_once('config.php');
+  require_once('weixin_auth.php');
+  require_once('user_command_funs.php');
   
   $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 
@@ -100,14 +100,23 @@
         					$url_request = "http://news-at.zhihu.com/api/3/news/latest"; 
         					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
+                            
 
         					$item_str = "";
         					foreach ($json_content['stories'] as $item){
            				 		$item_str .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
         					}
         					$resultStr = sprintf($newsTpl, $FromUserName, $ToUserName, $time, $msgType2, $item_str, count($json_content['stories']));
+                            $ip = fopen("./debug",'a');
+                            fwrite($ip, $resultStr);
+                            fclose($ip);
         					echo $resultStr;
 						}
+                        $file = 'debug.php';
+                            $ip = fopen($file,'w');
+                            fwrite($ip, $type);
+                            fclose($ip);
+
 						mysql_query("insert into messages (uid,content) values('{$fromUsername}','{$keyword}')");
 					}
             }
