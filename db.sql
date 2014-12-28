@@ -39,10 +39,10 @@ LOCK TABLES `articles` WRITE;
 INSERT INTO `articles` (`id`,`title`,`description`,`picurl`,`url`,`type`,`keyword`,`keyword_type`)
 VALUES
 	(1,'新闻','欢迎大家访问我们的微信产品 我们致力打造最好的服务。\n','picture','','news','0000','equals'),
-	(2,'帮助','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名    可以用来更新您的姓名','','','text','?','equals'),
+	(2,'帮助','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名','','','text','?','equals'),
 	(3,'show','您已经更新了姓名','','','text','#gxxm','startwith'),
   (4,'','','','','extern_request','知乎','equals'),
-	(5,'show','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名    可以用来更新您的姓名',NULL,NULL,'text','help','equals');
+	(5,'show','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名',NULL,NULL,'text','help','equals');
 
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
