@@ -98,12 +98,12 @@
 						{
 							$msgType2 = "news";
         					$url_request = "http://news-at.zhihu.com/api/3/news/latest"; 
-        					$url_response = file_get_contents($url);
+        					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
 
         					$item_str = "";
         					foreach ($json_content['stories'] as $item){
-           				 		$item_str .= sprintf($itemTpl, $item['title'], "", $item->images[0], "http://daily.zhihu.com/story/".$item['id']);
+           				 		$item_str .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
         					}
         					$resultStr = sprintf($newsTpl, $FromUserName, $ToUserName, $time, $msgType2, $item_str, count($json_content['stories']));
         					echo $resultStr;
