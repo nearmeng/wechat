@@ -94,7 +94,8 @@
 						else if( "news" == $type )
 						{
 							$msgType1  = "news";
-							$resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType1, $title,$description,$picurl,$url);
+							$item_str = sprintf($itemTpl, $title, $description, $picurl, $url);
+							$resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType1, 1, $item_str);
 							echo $resultStr;
 						}
 						else if( $type == "extern_request")
@@ -104,11 +105,11 @@
         					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
                             
-        					$item_str = "";
+        					$item_str1 = "";
         					foreach ($json_content['stories'] as $item){
-           				 		$item_str .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
+           				 		$item_str1 .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
         					}
-        					$resultStr = sprintf($newsTpl, $FromUserName, $ToUserName, $time, $msgType2, $item_str, count($json_content['stories']));
+        					$resultStr = sprintf($newsTpl, $FromUserName, $ToUserName, $time, $msgType2, count($json_content['stories']), $item_str1);
         					echo $resultStr;
 						}
 						mysql_query("insert into messages (uid,content) values('{$fromUsername}','{$keyword}')");
