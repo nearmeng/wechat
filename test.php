@@ -1,15 +1,15 @@
 <?php
 
-  require_once('functions.php');
+  	$url_request = "http://news-at.zhihu.com/api/3/news/latest"; 
+  	$url_response = file_get_contents($url);
+ 	$json_content = json_decode($url_response, true);
 
-  $sql="select keyword,title,description,type,picurl,url from articles where keyword='help' and keyword_type='equals'";
-  $result=mysql_query($sql); 
-  $row			=	mysql_fetch_row($result);
-  $title 			=	$row[1];
-  $type 			=	$row[3];
-  $description 	=	$row[2];
-
-  echo $title.$type.$description;
+    $item_str = "";
+    foreach ($json_content['stories'] as $item){
+    	echo $item['title'].'<br />';
+    	echo $item->images[0].'<br />';
+    	echo "http://daily.zhihu.com/story/".$item['id'].'<br />';
+    }
 
 
 ?>
