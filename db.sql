@@ -42,8 +42,8 @@ VALUES
 	(2,'帮助','您可以输入以下信息来获取我们的帮助：help  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前的想法\n #list# 列举出你的当前记录\n','','','text','?','equals'),
 	(3,'show','您已经更新了姓名','','','text','#gxxm','startwith'),
   (4,'zhihu','no',NULL,'http://news-at.zhihu.com/api/3/news/latest','extern_request','知乎','equals'),
-	(5,'show','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名',NULL,NULL,'text','help','equals')
-  (6,'write_notes','记录笔记成功!','','','text','#write#','startwith')
+	(5,'show','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名',NULL,NULL,'text','help','equals'),
+  (6,'write_notes','记录笔记成功!','','','text','#write#','startwith'),
   (7,'list_notes','您的笔记如下：','','','text','#list#','startwith');
 
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
