@@ -1,10 +1,34 @@
 <xml>
 					<ToUserName><![CDATA[omF6JuK4BioHgAdMqK_S9NDRYzqQ]]></ToUserName>
 					<FromUserName><![CDATA[gh_32e3839d1b57]]></FromUserName>
-					<CreateTime>1419785404</CreateTime>
-					<MsgType><![CDATA[text]]></MsgType>
-					<Content><![CDATA[您可以输入以下信息来获取我们的帮助：0000 获取新闻
-help  获取帮助
-#gxxm 您的姓名 可以用来更新您的姓名]]></Content>
+					<CreateTime>1419829289</CreateTime>
+					<MsgType><![CDATA[news]]></MsgType>
+					<ArticleCount>5</ArticleCount>
+					<Articles><item>
+        					<Title><![CDATA[2014 年中国互联网界发生的大事件都有哪些？]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic1.zhimg.com/cde5a2e2a1a1a07abbb73628428b92d2.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4406306]]></Url>
+    						</item><item>
+        					<Title><![CDATA[吃饭后发困想睡觉，和懒没什么关系]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic4.zhimg.com/7cfe5fc30ba56e085e80c962594dafb6.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4405396]]></Url>
+    						</item><item>
+        					<Title><![CDATA[为什么衬衣扣子男生在右，女生在左呢？]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic2.zhimg.com/a9a4a58d4f82759f693f8187f16bca26.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4404972]]></Url>
+    						</item><item>
+        					<Title><![CDATA[牛津剑桥（鄙视对方学校）的比赛，总是发生很多趣事]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic3.zhimg.com/0df87baf225c41036457c3deed8e450e.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4408368]]></Url>
+    						</item><item>
+        					<Title><![CDATA[唐代是慢慢以胖为美的，而且整体也算不上特别胖（多图）]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic1.zhimg.com/554988cfd5c489183f3477a49da3d951.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4399066]]></Url>
+    						</item></Articles>
 					<FuncFlag>0</FuncFlag>
-					</xml>
+				    </xml>

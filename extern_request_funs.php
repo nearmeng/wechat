@@ -1,15 +1,17 @@
 <?php
 
+	include_once('config.php');
 
-	function($json_content, $keyword, $fromUsername, $toUsername, $msgType2)
+	function zhihu($json_content, $keyword, $fromUsername, $toUsername, $msgType2)
 	{
+        global $itemTpl,$newsTpl;
 		$item_str1 = "";
         //foreach ($json_content['stories'] as $item){
-        for($i = 0; $i < 10; $i++) {
-            $item = $json_content['stories'][$i];
-           	$item_str1 .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
+        for($i = 0; $i < 5; $i++) {
+            $item = $json_content['top_stories'][$i];
+           	$item_str1 .= sprintf($itemTpl, $item['title'], "", $item['image'], "http://daily.zhihu.com/story/".$item['id']);
         }
-        $resultStr = sprintf($newsTpl, $fromUsername, $toUsername, time(), $msgType2, 10, $item_str1);
+        $resultStr = sprintf($newsTpl, $fromUsername, $toUsername, time(), $msgType2, 5, $item_str1);
         return $resultStr;
 	}
 

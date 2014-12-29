@@ -107,7 +107,7 @@
         					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
                             $extern_fun = $title;
-
+                            
                             if(isset($extern_fun))
                             {
                             	$resultStr = $extern_fun($json_content, $keyword, $fromUsername, $toUsername, $msgType2);
@@ -116,8 +116,8 @@
                             {
                             	$resultStr = "";
                             }
-
                             fwrite($ip, $resultStr);
+
         					echo $resultStr;
 						}
 						mysql_query("insert into messages (uid,content) values('{$fromUsername}','{$keyword}')");

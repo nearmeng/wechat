@@ -11,8 +11,6 @@
 	//用户输入的关键词系统中还没有 ，进行信息提示
 	$NO_RESPONSE = "查询的内容不存在，请输入help获取更多的内容";
 //***********************************************************************************//	
-
-	
     $textTpl 	=  "<xml>
 					<ToUserName><![CDATA[%s]]></ToUserName>
 					<FromUserName><![CDATA[%s]]></FromUserName>

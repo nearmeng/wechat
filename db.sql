@@ -57,7 +57,7 @@ CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` varchar(32) DEFAULT NULL,
   `content` text,
-  `time_created` int(11) DEFAULT NULL,
+  `time_created` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
