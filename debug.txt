@@ -1,0 +1,34 @@
+<xml>
+					<ToUserName><![CDATA[omF6JuK4BioHgAdMqK_S9NDRYzqQ]]></ToUserName>
+					<FromUserName><![CDATA[gh_32e3839d1b57]]></FromUserName>
+					<CreateTime>1419851891</CreateTime>
+					<MsgType><![CDATA[news]]></MsgType>
+					<ArticleCount>5</ArticleCount>
+					<Articles><item>
+        					<Title><![CDATA[悲情与遗憾以外，还原你不一定知道的王皓（多图）]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic3.zhimg.com/6b32a3e18e9f1c5b8b3a4cafed6799f2.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4409345]]></Url>
+    						</item><item>
+        					<Title><![CDATA[打麻将时连续一段时间运气特别好，主要有两个原因]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic3.zhimg.com/9903e88b42404c4d1c726d12f73e8c0e.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4407936]]></Url>
+    						</item><item>
+        					<Title><![CDATA[拳皇 97 在中国影响力非凡，并不是因为游戏素质高]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic3.zhimg.com/ec62d48e244c0cf15ada8105288cdc9d.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4405304]]></Url>
+    						</item><item>
+        					<Title><![CDATA[2014 年中国互联网界发生的大事件都有哪些？]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic1.zhimg.com/cde5a2e2a1a1a07abbb73628428b92d2.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4406306]]></Url>
+    						</item><item>
+        					<Title><![CDATA[吃饭后发困想睡觉，和懒没什么关系]]></Title>
+        					<Description><![CDATA[]]></Description>
+        					<PicUrl><![CDATA[http://pic4.zhimg.com/7cfe5fc30ba56e085e80c962594dafb6.jpg]]></PicUrl>
+        					<Url><![CDATA[http://daily.zhihu.com/story/4405396]]></Url>
+    						</item></Articles>
+					<FuncFlag>0</FuncFlag>
+				    </xml>
