@@ -29,12 +29,23 @@
 		return $resultStr;
 	}
 
-
-
-
-
-
-
+	//展示日记
+	function list_notes($keyword, $starwith_str, $description, $fromUsername, $toUsername)
+	{
+		global $textTpl;
+		$time = time();
+		$msgType = 'text';
+		$contentStr = $description;
+		//从数据库中拉取数据
+		$note_sql_result = mysql_query("select content from notes where uid='{$fromUsername}'");
+		while ($row=mysql_fetch_row($note_sql_result))
+		{
+			$contentStr .= $row[0]."\n";
+		}
+		//返回操作数据
+		$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		return $resultStr;
+	}
 
 
 
