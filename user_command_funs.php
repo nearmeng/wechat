@@ -23,6 +23,7 @@
 		$contentStr = $description;
 		//数据插入数据库
 		$note_content = substr($keyword, strlen($starwith_str), strlen($keyword)-strlen($starwith_str));
+		$note_content = trim($note_content);
 		mysql_query("insert into notes (uid,content) values('{$fromUsername}','{$note_content}')");
 		//返回操作完成消息
 		$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
