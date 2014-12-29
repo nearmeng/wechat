@@ -38,14 +38,13 @@ LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id`,`title`,`description`,`picurl`,`url`,`type`,`keyword`,`keyword_type`)
 VALUES
-	(1,'welcome','欢迎大家访问我们的微信产品 我们致力打造最好的服务。',NULL,NULL,'news','0000','equals'),
-	(2,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前的想法\n #list# 列举出你的当前记录\n','','','text','?','equals'),
-	(3,'show','您已经更新了姓名','','','text','#gxxm','startwith'),
-  (4,'zhihu','no',NULL,'http://news-at.zhihu.com/api/3/news/latest','extern_request','知乎','equals'),
-	(5,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前的想法\n #list# 列举出你的当前记录\n',NULL,NULL,'text','help','equals'),
-  (6,'write_notes','记录笔记成功!','','','text','#write#','startwith'),
-  (7,'list_notes','您的笔记如下：','','','text','#list#','startwith'),
-  (8,'remove_notes','您的笔记已经删除!','','','text','#delete#','startwith');
+	(1,'welcome','欢迎大家访问hxknows 我们致力打造最好的服务。',NULL,NULL,'news','who','equals'),
+	(2,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前想法\n #list# 列举出你的当前笔记记录\n#delete# 删除你的当前笔记记录','','','text','?','equals'),
+  (3,'zhihu','no',NULL,'http://news-at.zhihu.com/api/3/news/latest','extern_request','知乎','equals'),
+	(4,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前想法\n #list# 列举出你的当前笔记记录\n#delete# 删除你的当前笔记记录',NULL,NULL,'text','help','equals'),
+  (5,'write_notes','记录笔记成功!','','','text','#write#','startwith'),
+  (6,'list_notes','您的笔记如下：','','','text','#list#','startwith'),
+  (7,'remove_notes','您的笔记已经删除!','','','text','#delete#','startwith');
 
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
