@@ -26,6 +26,9 @@ header("Content-type:text/html;charset=utf-8");
     	echo "It is not array";
     }
     
+    $Cname1 = "南京南站";
+    $Cname2 = "百家湖";
 
+    echo urlencode($Cname1)." ".urlencode($Cname2);
 
 ?>
