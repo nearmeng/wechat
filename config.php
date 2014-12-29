@@ -30,11 +30,11 @@
 	$newsTpl    =   "<xml>
 					<ToUserName><![CDATA[%s]]></ToUserName>
 					<FromUserName><![CDATA[%s]]></FromUserName>
-					<CreateTime>%s</CreateTime
+					<CreateTime>%s</CreateTime>
 					<MsgType><![CDATA[%s]]></MsgType>
 					<ArticleCount>%s</ArticleCount>
 					<Articles>%s</Articles>
-					<FuncFlag>1</FuncFlag>
+					<FuncFlag>0</FuncFlag>
 				    </xml>"; 
 	// 连接dB
 	$conn = mysql_connect($_hostname, $_username, $_password);

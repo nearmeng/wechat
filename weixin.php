@@ -81,13 +81,13 @@
 						//将url中的[[wxid]]换成$fromUserName
 						$url = str_replace("[[wxid]]", $fromUsername, $url);		// 替换微信的ID
 						//根据消息类型进行xml组装和发送
-                        fwrite($ip, $type);
 						if( "text" == $type )
 						{
 							$contentStr	=	$description;
 							$contentStr = str_replace("[[wxid]]", $fromUsername, $contentStr);		// 替换微信的ID
 							$msgType 	= "text";
 							$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            fwrite($ip, $resultStr);
 							echo $resultStr;
 						}
 						else if( "news" == $type )
@@ -95,6 +95,7 @@
 							$msgType1  = "news";
 							$item_str = sprintf($itemTpl, $title, $description, $picurl, $url);
 							$resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType1, 1, $item_str);
+                            fwrite($ip, $resultStr);
 							echo $resultStr;
 						}
 						else if( $type == "extern_request")
@@ -103,12 +104,17 @@
         					$url_request = "http://news-at.zhihu.com/api/3/news/latest"; 
         					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
+                            fwrite($ip, $type);
                             
         					$item_str1 = "";
-        					foreach ($json_content['stories'] as $item){
+        					//foreach ($json_content['stories'] as $item){
+                            for($i = 0; $i < 10; $i++) {
+                                $item = $json_content['stories'][$i];
            				 		$item_str1 .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
+                                fwrite($ip, $i);
         					}
-        					$resultStr = sprintf($newsTpl, $FromUserName, $ToUserName, $time, $msgType2, count($json_content['stories']), $item_str1);
+        					$resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType2, 10, $item_str1);
+                            fwrite($ip, $resultStr);
         					echo $resultStr;
 						}
 						mysql_query("insert into messages (uid,content) values('{$fromUsername}','{$keyword}')");

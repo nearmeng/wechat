@@ -28,7 +28,7 @@ CREATE TABLE `articles` (
   `description` text,
   `picurl` varchar(200) DEFAULT NULL,
   `url` varchar(200) DEFAULT NULL,
-  `type` enum('text','news','music') DEFAULT 'text',
+  `type` enum('text','news','extern_request') DEFAULT 'text',
   `keyword` varchar(200) DEFAULT NULL,
   `keyword_type` enum('startwith','equals') DEFAULT 'equals',
   PRIMARY KEY (`id`)
@@ -38,10 +38,10 @@ LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id`,`title`,`description`,`picurl`,`url`,`type`,`keyword`,`keyword_type`)
 VALUES
-	(1,'新闻','欢迎大家访问我们的微信产品 我们致力打造最好的服务。\n','picture','','news','0000','equals'),
+	(1,'新闻','欢迎大家访问我们的微信产品 我们致力打造最好的服务。',NULL,NULL,'news','0000','equals'),
 	(2,'帮助','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名','','','text','?','equals'),
 	(3,'show','您已经更新了姓名','','','text','#gxxm','startwith'),
-  (4,'','','','','extern_request','知乎','equals'),
+  (4,'zhihu','no',NULL,NULL,'extern_request','知乎','equals'),
 	(5,'show','您可以输入以下信息来获取我们的帮助：0000 获取新闻\nhelp  获取帮助\n#gxxm 您的姓名 可以用来更新您的姓名',NULL,NULL,'text','help','equals');
 
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;

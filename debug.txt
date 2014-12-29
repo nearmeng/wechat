@@ -1,0 +1,10 @@
+<xml>
+					<ToUserName><![CDATA[omF6JuK4BioHgAdMqK_S9NDRYzqQ]]></ToUserName>
+					<FromUserName><![CDATA[gh_32e3839d1b57]]></FromUserName>
+					<CreateTime>1419785404</CreateTime>
+					<MsgType><![CDATA[text]]></MsgType>
+					<Content><![CDATA[您可以输入以下信息来获取我们的帮助：0000 获取新闻
+help  获取帮助
+#gxxm 您的姓名 可以用来更新您的姓名]]></Content>
+					<FuncFlag>0</FuncFlag>
+					</xml>
