@@ -59,7 +59,7 @@
 		$msgType = 'text';
 		$contentStr = $description;
 		//删除数据库
-		mysql_query("delete from notes where uid='{$fromUsername}')");
+		mysql_query("delete from notes where uid='{$fromUsername}'");
 		//返回操作完成消息
 		$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 		return $resultStr;
