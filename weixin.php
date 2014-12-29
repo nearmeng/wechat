@@ -2,6 +2,8 @@
   require_once('config.php');
   require_once('weixin_auth.php');
   require_once('user_command_funs.php');
+  require_once('extern_request_funs.php');
+  require_once('db_op.php');
   
   $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
   $file = '/data/html/debug.txt';
@@ -55,7 +57,7 @@
 								//如果找到自定义命令，则调用自定义处理函数进行处理
 								if( $starwith )
 								{
-									 $starwith_func($keyword, $starwith_str, $fromUsername, $toUsername);
+									 $resultStr = $starwith_func($keyword, $starwith_str, $fromUsername, $toUsername);
 								}
 								//否则返回404
 								else
@@ -64,8 +66,8 @@
 									
 									$msgType 	= "text";
 									$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-									echo $resultStr;	
 								}
+								echo $resultStr;	
 				 
 					}
 					//如果找到了相同的关键词
@@ -81,16 +83,16 @@
 						//将url中的[[wxid]]换成$fromUserName
 						$url = str_replace("[[wxid]]", $fromUsername, $url);		// 替换微信的ID
 						//根据消息类型进行xml组装和发送
-						if( "text" == $type )
+						if($type == "text")
 						{
 							$contentStr	=	$description;
 							$contentStr = str_replace("[[wxid]]", $fromUsername, $contentStr);		// 替换微信的ID
 							$msgType 	= "text";
 							$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                            fwrite($ip, $resultStr);
+                            //fwrite($ip, $resultStr);
 							echo $resultStr;
 						}
-						else if( "news" == $type )
+						else if($type == "news")
 						{
 							$msgType1  = "news";
 							$item_str = sprintf($itemTpl, $title, $description, $picurl, $url);
@@ -98,22 +100,23 @@
                             fwrite($ip, $resultStr);
 							echo $resultStr;
 						}
-						else if( $type == "extern_request")
+						else if($type == "extern_request")
 						{
 							$msgType2 = "news";
-        					$url_request = "http://news-at.zhihu.com/api/3/news/latest"; 
+        					$url_request = $url; 
         					$url_response = file_get_contents($url_request);
         					$json_content = json_decode($url_response, true);
-                            fwrite($ip, $type);
-                            
-        					$item_str1 = "";
-        					//foreach ($json_content['stories'] as $item){
-                            for($i = 0; $i < 10; $i++) {
-                                $item = $json_content['stories'][$i];
-           				 		$item_str1 .= sprintf($itemTpl, $item['title'], "", $item['images'][0], "http://daily.zhihu.com/story/".$item['id']);
-                                fwrite($ip, $i);
-        					}
-        					$resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType2, 10, $item_str1);
+                            $extern_fun = $title;
+
+                            if(isset($extern_fun))
+                            {
+                            	$resultStr = $extern_fun($json_content, $keyword, $fromUsername, $toUsername, $msgType2);
+                            }
+                            else
+                            {
+                            	$resultStr = "";
+                            }
+
                             fwrite($ip, $resultStr);
         					echo $resultStr;
 						}

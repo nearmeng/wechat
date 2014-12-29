@@ -16,8 +16,8 @@
 		$msgType 	= "text";
 		$contentStr	= "您输入的是，这是一个自定义的方法：".$keyword;
 		$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-		echo $resultStr;
 		mysql_query("insert into messages (uid,content) values('{$fromUsername}','{$keyword}')");
+		return $resultStr;
 	}
 	
 	function yourfunction($keyword, $key, $fromUsername, $toUsername)
