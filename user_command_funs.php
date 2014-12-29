@@ -35,7 +35,7 @@
 		global $textTpl;
 		$time = time();
 		$msgType = 'text';
-		$contentStr = $description;
+		$contentStr = $description."\n";
 		//从数据库中拉取数据
 		$note_sql_result = mysql_query("select content from notes where uid='{$fromUsername}'");
 		while ($row=mysql_fetch_row($note_sql_result))
