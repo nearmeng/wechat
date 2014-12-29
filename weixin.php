@@ -35,7 +35,7 @@
 					//如果整体没有找到对应的关键词 查看是否是自定义的命令
 					if($num<1){
 								//找出数据库中自定义命令集合
-						  		$sql="select keyword,title from articles where keyword_type='startwith'";
+						  		$sql="select keyword,title,description from articles where keyword_type='startwith'";
 				             	$result=mysql_query($sql); 
 				 
 				             	$starwith		=	false;
@@ -50,6 +50,7 @@
 									{
 										$starwith_str 	= $_keyword;
 										$starwith_func	= $row[1];
+										$description    = $row[2];
 										$starwith		= true;
 										break;
 									}
@@ -57,7 +58,7 @@
 								//如果找到自定义命令，则调用自定义处理函数进行处理
 								if( $starwith )
 								{
-									 $resultStr = $starwith_func($keyword, $starwith_str, $fromUsername, $toUsername);
+									 $resultStr = $starwith_func($keyword, $starwith_str, $description, $fromUsername, $toUsername);
 								}
 								//否则返回404
 								else
