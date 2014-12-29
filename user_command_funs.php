@@ -48,6 +48,18 @@
 		return $resultStr;
 	}
 
+	function remove_notes($keyword, $starwith_str, $description, $fromUsername, $toUsername)
+	{
+		global $textTpl;
+		$time = time();
+		$msgType = 'text';
+		$contentStr = $description;
+		//删除数据库
+		mysql_query("delete from notes where uid='{$fromUsername}')");
+		//返回操作完成消息
+		$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		return $resultStr;
+	}
 
 
 ?>
