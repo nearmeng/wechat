@@ -116,16 +116,16 @@
 		$url_request = "http://112.2.33.3:5902/BusAndroid/android.do?command=toSta&lineId=".$line_id."&inDown=".($up_or_down==1?2:1); 
         $url_response = file_get_contents($url_request);
         $json_content = json_decode($url_response, true);
-        $station_num = json_content['total'];
+        $station_num = $json_content['total'];
 
-        foreach ($json_content['rows'] as $key => $item) 
+        foreach ($json_content['rows'] as $key => $value) 
         {
-        	$station_name[$key] = $item['text']; 
+        	$station_name[$key] = $value['text']; 
         }
 
         $user_station_id = -1;
         foreach ($station_name as $key => $value) {
-        	if($value == $row[3])
+        	if($value == $row[2])
         	{
         		$user_station_id = $key;
         	}
@@ -161,7 +161,7 @@
         }
 
 		//4 形成结果反馈给用户
-        $contentStr = "最近的公交车(".$best_bus.")正处于".$best_bus_station."\n 距离您".$min_distance."站,请耐心等候。";
+        $contentStr = "最近的公交车(".$best_bus.")正处于(".$best_bus_station.")\n 距离您(".$min_distance.")站,请耐心等候。";
         $resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 		return $resultStr;
 	}
