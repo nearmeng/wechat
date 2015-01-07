@@ -39,7 +39,7 @@ LOCK TABLES `articles` WRITE;
 INSERT INTO `articles` (`id`,`title`,`description`,`picurl`,`url`,`type`,`keyword`,`keyword_type`)
 VALUES
 	(1,'welcome','欢迎大家访问hxknows 我们致力打造最好的服务。',NULL,NULL,'news','who','equals'),
-	(2,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前想法\n #list# 列举出你的当前笔记记录\n#delete# 删除你的当前笔记记录','','','text','?','equals'),
+	(2,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前想法\n #list# 列举出你的当前笔记记录\n#delete# 删除你的当前笔记记录\n #跟踪 进城or返乡 公交车名 所在站点 可以查看当前公交信息','','','text','?','equals'),
   (3,'zhihu','no use',NULL,'http://news-at.zhihu.com/api/3/news/latest','extern_request','知乎','equals'),
 	(4,'help','您可以输入以下信息来获取我们的帮助：\nhelp  获取帮助\n知乎 当前知乎日报最热5条信息\n#write#记事内容 可以用来记录你当前想法\n #list# 列举出你的当前笔记记录\n#delete# 删除你的当前笔记记录',NULL,NULL,'text','help','equals'),
   (5,'write_notes','记录笔记成功!','','','text','#记录','startwith'),
@@ -101,10 +101,6 @@ CREATE TABLE `sj` (
   `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-
-
-
-
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
