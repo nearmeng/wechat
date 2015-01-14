@@ -87,7 +87,7 @@
 		}
 		else
 		{
-			$contentStr = "你要进城还是下乡哪里哇，请重新输入！格式：#跟踪 上(下)行 公交名 所在站点";
+			$contentStr = "你要进城还是下乡哇，请重新输入！格式：#跟踪 上(下)行 公交名 所在站点";
 			$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 			return $resultStr;
 		}
