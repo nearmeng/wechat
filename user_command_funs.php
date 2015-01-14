@@ -143,19 +143,30 @@
         $json_content = json_decode($url_response, true);
 
         $best_bus = -1;
+        $missed_bus = -1;
         $min_distance = $station_num;
+        $min_missed_distance = $station_num;
 
         foreach ($json_content['rows'] as $item) {
-        	if(($item['stationNo']-$user_station_id) > 0 && ($item['stationNo']-$user_station_id) < $min_distance) 
+        	$delta_station = $item['stationNo']-$user_station_id;
+        	//3.1 获得将到达的最近公交信息
+        	if($delta_station > 0 && $delta_station < $min_distance) 
         	{
-        		$min_distance = ($item['stationNo']-$user_station_id);
+        		$min_distance = $delta_station;
         		$best_bus = $item['carZbh'];
         		$best_bus_station = $item['stationName'];
+        	}
+        	//3.2 获得错过的最近公交信息
+        	else if($delta_station < 0 && (-1*$delta_station) < $min_missed_distance)
+        	{
+        		$min_missed_distance = -1*$delta_station;
+        		$missed_bus = $item['carZbh'];
+        		$missed_bus_station = $item['stationName'];
         	}
         }
         if($best_bus == -1)
         {
-        	$contentStr = "当前线路上没有合适的公交车";
+        	$contentStr = "当前线路上没有合适的公交车，您刚错过(".$missed_bus.")正处于(".$missed_bus_station.") :(";
 			$resultStr 	= sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 			return $resultStr;
         }
