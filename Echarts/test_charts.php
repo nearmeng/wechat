@@ -1,6 +1,7 @@
 <?php
 
     require_once("echarts.php");
+    echo "ready to test charts";
 
     $option = array(
         "legend"=>array("邮件营销","联盟广告","视频广告","直接访问","搜索引擎"),
@@ -15,6 +16,7 @@
         );
 
     $ec = new Echarts();
+    echo "ready to run function show";
     echo $ec->show('chartArea', $option);   // 显示在指定的dom节点上    
 
     // 饼形图模拟数据
